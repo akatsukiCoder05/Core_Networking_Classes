@@ -8,6 +8,7 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,11 @@ const Navbar = () => {
         setScrolled(true);
       } else {
         setScrolled(false);
+      }
+
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -161,6 +167,7 @@ const Navbar = () => {
 
       {/* Sticky Main Navigation */}
       <header className={`navbar-wrapper ${scrolled ? 'scrolled' : ''}`}>
+        <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
         <nav className="navbar-container">
           {/* Logo Brand */}
           <a href="https://corenetworkingclasses.com/index.php" className="logo-wrapper">

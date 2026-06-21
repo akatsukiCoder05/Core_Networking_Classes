@@ -4,6 +4,7 @@ import HeroSlider from './components/HeroSlider';
 import AboutCNC from './components/AboutCNC';
 import CourseCategories from './components/CourseCategories';
 import JobAssurance from './components/JobAssurance';
+import RecruiterTicker from './components/RecruiterTicker';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import ContactInfoGrid from './components/ContactInfoGrid';
@@ -61,6 +62,9 @@ function App() {
 
       {/* Google Reviews & Testimonials Section */}
       <Testimonials />
+
+      {/* Corporate Recruitment Partners */}
+      <RecruiterTicker />
 
       {/* Frequently Asked Questions */}
       <FAQ />

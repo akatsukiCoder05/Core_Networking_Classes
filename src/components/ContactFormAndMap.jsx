@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, User, Mail, Phone, MessageSquare } from 'lucide-react';
 
 const ContactFormAndMap = () => {
   const [formData, setFormData] = useState({
@@ -59,72 +59,87 @@ const ContactFormAndMap = () => {
             <div className="form-row">
               <div className="form-group">
                 <label className="form-label" htmlFor="fname">First Name</label>
-                <input 
-                  type="text" 
-                  name="fname" 
-                  id="fname" 
-                  className="form-input" 
-                  placeholder="First name"
-                  value={formData.fname}
-                  onChange={handleInputChange}
-                  required 
-                />
+                <div className="form-group-input-wrapper">
+                  <User size={16} className="input-icon" />
+                  <input 
+                    type="text" 
+                    name="fname" 
+                    id="fname" 
+                    className="form-input" 
+                    placeholder="First name"
+                    value={formData.fname}
+                    onChange={handleInputChange}
+                    required 
+                  />
+                </div>
               </div>
               <div className="form-group">
                 <label className="form-label" htmlFor="lname">Last Name</label>
-                <input 
-                  type="text" 
-                  name="lname" 
-                  id="lname" 
-                  className="form-input" 
-                  placeholder="Last name"
-                  value={formData.lname}
-                  onChange={handleInputChange}
-                  required 
-                />
+                <div className="form-group-input-wrapper">
+                  <User size={16} className="input-icon" />
+                  <input 
+                    type="text" 
+                    name="lname" 
+                    id="lname" 
+                    className="form-input" 
+                    placeholder="Last name"
+                    value={formData.lname}
+                    onChange={handleInputChange}
+                    required 
+                  />
+                </div>
               </div>
             </div>
 
             <div className="form-row">
               <div className="form-group">
                 <label className="form-label" htmlFor="email">Email Address</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="email" 
-                  className="form-input" 
-                  placeholder="name@example.com"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required 
-                />
+                <div className="form-group-input-wrapper">
+                  <Mail size={16} className="input-icon" />
+                  <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    className="form-input" 
+                    placeholder="name@example.com"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required 
+                  />
+                </div>
               </div>
               <div className="form-group">
                 <label className="form-label" htmlFor="mobile">Contact Number</label>
-                <input 
-                  type="tel" 
-                  name="mobile" 
-                  id="mobile" 
-                  className="form-input" 
-                  placeholder="Contact number"
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  required 
-                />
+                <div className="form-group-input-wrapper">
+                  <Phone size={16} className="input-icon" />
+                  <input 
+                    type="tel" 
+                    name="mobile" 
+                    id="mobile" 
+                    className="form-input" 
+                    placeholder="Contact number"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                    required 
+                  />
+                </div>
               </div>
             </div>
 
             <div className="form-group">
               <label className="form-label" htmlFor="message">Your Message</label>
-              <textarea 
-                name="message" 
-                id="message" 
-                className="form-input form-textarea" 
-                placeholder="How can our network specialists help you?"
-                value={formData.message}
-                onChange={handleInputChange}
-                required 
-              />
+              <div className="form-group-input-wrapper message-textarea-wrapper">
+                <MessageSquare size={16} className="input-icon message-icon" />
+                <textarea 
+                  name="message" 
+                  id="message" 
+                  className="form-input form-textarea" 
+                  placeholder="How can our network specialists help you?"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required 
+                />
+              </div>
             </div>
 
             <div className="submit-btn-wrapper">
@@ -172,6 +187,16 @@ const ContactFormAndMap = () => {
               loading="lazy" 
               title="CNC Location Map"
             />
+          </div>
+          
+          <div className="map-overlay-card">
+            <h4>CNC Delhi Campus</h4>
+            <p>J/228, Swami Dayanand Colony, Sector 4, Dev Nagar, Karol Bagh, New Delhi, Delhi 110005</p>
+            <div className="overlay-details">
+              <span><strong>Phone:</strong> +91 93153 44729</span>
+              <span><strong>Email:</strong> info@corenetworkingclasses.com</span>
+              <span><strong>Hours:</strong> 10:00 AM - 7:00 PM</span>
+            </div>
           </div>
         </motion.div>
 

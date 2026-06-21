@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { CheckCircle2, Bell } from 'lucide-react';
 
 const AppPromoBanner = () => {
   return (
@@ -45,8 +46,50 @@ const AppPromoBanner = () => {
 
         {/* Promo phone graphic mockup */}
         <div className="app-promo-graphic-area">
-          <div className="app-promo-circle-glow" />
-          <div className="app-mock-phone">
+          <motion.div 
+            className="app-promo-circle-glow" 
+            animate={{ scale: [1, 1.15, 1], opacity: [0.8, 1, 0.8] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+          />
+          
+          <motion.div 
+            className="promo-floating-card lab-card"
+            animate={{ y: [0, -10, 0], x: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
+          >
+            <div className="promo-floating-icon-wrapper">
+              <CheckCircle2 size={16} style={{ color: '#10B981' }} />
+            </div>
+            <div className="promo-floating-card-info">
+              <span>Lab Completed</span>
+              <small>BGP Route Reflector</small>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="promo-floating-card placement-card"
+            animate={{ y: [0, 10, 0], x: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut", delay: 0.4 }}
+          >
+            <div className="promo-floating-icon-wrapper notification-icon">
+              <Bell size={16} style={{ color: '#FF7B31' }} />
+            </div>
+            <div className="promo-floating-card-info">
+              <span>New Placement</span>
+              <small>L&T Infotech Hiring</small>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="app-mock-phone"
+            animate={{ y: [0, -15, 0] }}
+            whileHover={{ rotate: -3, scale: 1.03 }}
+            transition={{ 
+              y: { repeat: Infinity, duration: 5, ease: "easeInOut" },
+              rotate: { duration: 0.3 },
+              scale: { duration: 0.3 }
+            }}
+          >
             <div className="app-mock-inner">
               <div className="app-mock-screen">
                 <span className="app-mock-logo">CNC App</span>
@@ -54,7 +97,7 @@ const AppPromoBanner = () => {
                 <div className="app-mock-welcome">Welcome Back</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
       </motion.div>

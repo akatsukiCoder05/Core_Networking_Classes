@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Server, Users, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import mvipAssurance from '../assets/mvip_assurance.png';
 
 const JobAssurance = () => {
   const containerVariants = {
@@ -24,22 +25,26 @@ const JobAssurance = () => {
     {
       icon: <Server size={24} />,
       title: "Real Physical Devices & Racks",
-      desc: "Train on physical Cisco switches, routers, firewalls, and F5 load balancers, not just simulators."
+      desc: "Train on physical Cisco switches, routers, firewalls, and F5 load balancers, not just simulators.",
+      tags: ["ISR Routers", "Catalyst Switches", "ASA Firewalls", "F5 LTM"]
     },
     {
       icon: <Award size={24} />,
       title: "Production Migration Scenarios",
-      desc: "Get hands-on experience performing network migration activities and hardware troubleshooting."
+      desc: "Get hands-on experience performing network migration activities and hardware troubleshooting.",
+      tags: ["Route Redirection", "Failover Testing", "VLAN Migrations", "OS Upgrades"]
     },
     {
       icon: <Users size={24} />,
       title: "1-on-1 Certified Mentorship",
-      desc: "Direct guidance and reviews from Neeraj Sir and other CCIE-certified IT trainers."
+      desc: "Direct guidance and reviews from Neeraj Sir and other CCIE-certified IT trainers.",
+      tags: ["CCIE Instructors", "Daily Labs", "Personal Feedback", "Live Q&A"]
     },
     {
       icon: <ShieldCheck size={24} />,
       title: "Full Placement & Interview Prep",
-      desc: "Comprehensive mock interviews, CV building sessions, and direct networking company introductions."
+      desc: "Comprehensive mock interviews, CV building sessions, and direct networking company introductions.",
+      tags: ["Resume Building", "Placement Portal", "Mock Tech Drills", "HR Networks"]
     }
   ];
 
@@ -81,6 +86,14 @@ const JobAssurance = () => {
               </p>
             </motion.div>
 
+            {/* MVIP LAB IMAGE */}
+            <motion.div className="assurance-image-wrapper" variants={itemVariants}>
+              <img src={mvipAssurance} alt="CNC Flagship MVIP Datacenter Lab" className="assurance-image" />
+              <div className="assurance-image-overlay">
+                <span>CNC Live Physical Lab Racks</span>
+              </div>
+            </motion.div>
+
             <motion.div className="mvip-highlight-box" variants={itemVariants}>
               <div className="highlight-icon">
                 <CheckCircle2 size={24} className="text-emerald" />
@@ -116,6 +129,11 @@ const JobAssurance = () => {
                 </div>
                 <h3>{benefit.title}</h3>
                 <p>{benefit.desc}</p>
+                <div className="benefit-tags">
+                  {benefit.tags.map((tag, idx) => (
+                    <span key={idx} className="benefit-tag">{tag}</span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -127,3 +145,4 @@ const JobAssurance = () => {
 };
 
 export default JobAssurance;
+
